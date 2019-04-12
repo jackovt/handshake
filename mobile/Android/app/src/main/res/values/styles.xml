@@ -1,0 +1,37 @@
+<resources>
+
+    <!-- Base application theme. -->
+    <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+    </style>
+    <!-- Base application theme. -->
+    <style name="AppThemeNoActionBar" parent="Theme.AppCompat.NoActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+    </style>
+
+    <style name="AppTheme.TextAppearance.Display1" parent="TextAppearance.AppCompat.Display1">
+        <item name="android:textSize">@dimen/text_size_display1</item>
+    </style>
+
+    <style name="AppTheme.TextAppearance.Body1" parent="TextAppearance.AppCompat.Body1">
+        <item name="android:textSize">@dimen/text_size_body1</item>
+        <item name="android:textColor">@color/colorTextBody1</item>
+    </style>
+
+    <style name="AppTheme.Widget.Button.Colored.Primary" parent="@style/Widget.AppCompat.Button.Colored">
+        <item name="android:background">@color/colorPrimary</item>
+        <item name="android:textColor">@color/colorTextButtonPrimary</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="AppTheme.Widget.Button.Colored.Accent" parent="@style/Widget.AppCompat.Button.Colored">
+        <item name="android:textStyle">bold</item>
+    </style>
+
+</resources>
