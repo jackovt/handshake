@@ -61,6 +61,7 @@ class SplashFragment : Fragment() {
     }
 
     companion object {
+        val SPLASH_SCREEN_DELAY: Long = 2000
         /**
          * Use this factory method to create a new instance of
          * this fragment using the provided parameters.

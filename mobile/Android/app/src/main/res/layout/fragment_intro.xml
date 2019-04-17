@@ -1,95 +1,110 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
-        tools:context=".MainActivity"
-        android:layout_height="match_parent"
-        android:layout_width="match_parent"
+<layout
         xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:app="http://schemas.android.com/apk/res-auto"
         xmlns:tools="http://schemas.android.com/tools">
 
-    <View
-            android:background="@color/colorBackground"
+    <data>
+
+        <import type="android.view.View"/>
+
+        <variable
+                name="callback"
+                type="io.nomasters.android.handshake.ui.intro.IntroFragmentActionCallback"/>
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_height="match_parent"
             android:layout_width="match_parent"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"/>
+            android:id="@+id/fragment_intro"
+            tools:context="./ui/intro/IntroFragment">
 
-    <androidx.constraintlayout.widget.Guideline
-            android:id="@+id/guideline_center"
-            android:layout_height="wrap_content"
-            android:layout_width="wrap_content"
-            android:orientation="horizontal"
-            app:layout_constraintGuide_percent="0.40"/>
+        <View
+                android:background="@color/colorBackground"
+                android:layout_height="match_parent"
+                android:layout_width="match_parent"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"/>
 
-    <androidx.constraintlayout.widget.Guideline
-            android:id="@+id/guideline_keyline_start_1"
-            android:layout_height="wrap_content"
-            android:layout_width="wrap_content"
-            android:orientation="vertical"
-            app:layout_constraintGuide_begin="@dimen/keyline_horizontal"/>
+        <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/guideline_center"
+                android:layout_height="wrap_content"
+                android:layout_width="wrap_content"
+                android:orientation="horizontal"
+                app:layout_constraintGuide_percent="0.50"/>
 
-    <androidx.constraintlayout.widget.Guideline
-            android:id="@+id/guideline_keyline_end_1"
-            android:layout_height="wrap_content"
-            android:layout_width="wrap_content"
-            android:orientation="vertical"
-            app:layout_constraintGuide_end="@dimen/keyline_horizontal"/>
+        <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/guideline_keyline_start_1"
+                android:layout_height="wrap_content"
+                android:layout_width="wrap_content"
+                android:orientation="vertical"
+                app:layout_constraintGuide_begin="@dimen/keyline_horizontal"/>
 
-    <androidx.constraintlayout.widget.Guideline
-            android:id="@+id/guideline_keyline_top_1"
-            android:layout_height="wrap_content"
-            android:layout_width="wrap_content"
-            android:orientation="horizontal"
-            app:layout_constraintGuide_begin="@dimen/keyline_vertical"/>
+        <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/guideline_keyline_end_1"
+                android:layout_height="wrap_content"
+                android:layout_width="wrap_content"
+                android:orientation="vertical"
+                app:layout_constraintGuide_end="@dimen/keyline_horizontal"/>
 
-    <androidx.constraintlayout.widget.Guideline
-            android:id="@+id/guideline_keyline_bottom_1"
-            android:layout_height="wrap_content"
-            android:layout_width="wrap_content"
-            android:orientation="horizontal"
-            app:layout_constraintGuide_end="@dimen/keyline_vertical"/>
+        <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/guideline_keyline_top_1"
+                android:layout_height="wrap_content"
+                android:layout_width="wrap_content"
+                android:orientation="horizontal"
+                app:layout_constraintGuide_begin="@dimen/keyline_vertical"/>
 
-    <TextView
-            android:id="@+id/text_header_intro_text"
-            android:layout_height="wrap_content"
-            android:layout_width="wrap_content"
-            android:text="@string/text_header_intro_text"
-            app:layout_constraintBottom_toTopOf="@+id/guideline_center"
-            app:layout_constraintEnd_toEndOf="@+id/guideline_keyline_end_1"
-            app:layout_constraintStart_toStartOf="@+id/guideline_keyline_start_1"
-            style="@style/AppTheme.TextAppearance.Display1"/>
+        <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/guideline_keyline_bottom_1"
+                android:layout_height="wrap_content"
+                android:layout_width="wrap_content"
+                android:orientation="horizontal"
+                app:layout_constraintGuide_end="@dimen/keyline_vertical"/>
 
-    <TextView
-            android:gravity="center"
-            android:id="@+id/text_description_intro_text"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="40dp"
-            android:layout_width="300dp"
-            android:text="@string/text_description_intro_text"
-            app:layout_constraintEnd_toEndOf="@+id/guideline_keyline_end_1"
-            app:layout_constraintStart_toStartOf="@+id/guideline_keyline_start_1"
-            app:layout_constraintTop_toBottomOf="@+id/text_header_intro_text"
-            style="@style/AppTheme.TextAppearance.Body1"/>
+        <TextView
+                android:id="@+id/text_header_intro_text"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="40dp"
+                android:layout_width="wrap_content"
+                android:text="@string/text_header_intro_text"
+                app:layout_constraintBottom_toTopOf="@+id/text_description_intro_text"
+                app:layout_constraintEnd_toEndOf="@+id/guideline_keyline_end_1"
+                app:layout_constraintStart_toStartOf="@+id/guideline_keyline_start_1"
+                style="@style/AppTheme.TextAppearance.Display1"/>
 
-    <Button
-            android:layout_height="wrap_content"
-            android:layout_width="0dp"
-            android:text="@string/btn_intro_lets_get_started"
-            android:textAllCaps="false"
-            app:layout_constraintBottom_toTopOf="@id/view_btn_bottom_offset"
-            app:layout_constraintEnd_toEndOf="@+id/guideline_keyline_end_1"
-            app:layout_constraintStart_toStartOf="@+id/guideline_keyline_start_1"
-            style="@style/AppTheme.Widget.Button.Colored.Primary"
-            />
+        <TextView
+                android:gravity="center"
+                android:id="@+id/text_description_intro_text"
+                android:layout_height="wrap_content"
+                android:layout_width="300dp"
+                android:text="@string/text_description_intro_text"
+                app:layout_constraintEnd_toEndOf="@+id/guideline_keyline_end_1"
+                app:layout_constraintStart_toStartOf="@+id/guideline_keyline_start_1"
+                app:layout_constraintTop_toBottomOf="@+id/guideline_center"
+                style="@style/AppTheme.TextAppearance.Body1"/>
 
-    <View
-            android:id="@+id/view_btn_bottom_offset"
-            android:layout_height="36dp"
-            android:layout_width="0dp"
-            app:layout_constraintBottom_toBottomOf="@id/guideline_keyline_bottom_1"
-            app:layout_constraintEnd_toEndOf="@+id/guideline_keyline_end_1"
-            app:layout_constraintStart_toStartOf="@+id/guideline_keyline_start_1"/>
+        <Button
+                android:id="@+id/btn_intro_lets_get_started"
+                android:layout_height="wrap_content"
+                android:layout_width="0dp"
+                android:onClick="@{()->callback.onLetsGetStartedClicked()}"
+                android:text="@string/btn_intro_lets_get_started"
+                android:textAllCaps="false"
+                app:layout_constraintBottom_toTopOf="@id/view_btn_bottom_offset"
+                app:layout_constraintEnd_toEndOf="@+id/guideline_keyline_end_1"
+                app:layout_constraintStart_toStartOf="@+id/guideline_keyline_start_1"
+                style="@style/AppTheme.Widget.Button.Colored.Primary"
+                />
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+        <View
+                android:id="@+id/view_btn_bottom_offset"
+                android:layout_height="36dp"
+                android:layout_width="0dp"
+                app:layout_constraintBottom_toBottomOf="@id/guideline_keyline_bottom_1"
+                app:layout_constraintEnd_toEndOf="@+id/guideline_keyline_end_1"
+                app:layout_constraintStart_toStartOf="@+id/guideline_keyline_start_1"/>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

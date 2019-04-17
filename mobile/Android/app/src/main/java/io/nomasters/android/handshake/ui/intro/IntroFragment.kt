@@ -5,8 +5,10 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import io.nomasters.android.handshake.R
+import io.nomasters.android.handshake.databinding.FragmentIntroBinding
 
 /**
  * A simple [Fragment] subclass.
@@ -19,6 +21,12 @@ import io.nomasters.android.handshake.R
  */
 class IntroFragment : Fragment() {
     private var listener: OnFragmentInteractionListener? = null
+    private var binding: FragmentIntroBinding? = null
+    private val callback: IntroFragmentActionCallback = object : IntroFragmentActionCallback {
+        override fun onLetsGetStartedClicked() {
+            listener?.navigateToProfileCreation()
+        }
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -28,8 +36,9 @@ class IntroFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_intro, container, false)
+        binding = DataBindingUtil.inflate(inflater, R.layout.fragment_intro, container, false)
+        binding?.callback = callback
+        return binding?.root
     }
 
     override fun onAttach(context: Context) {
@@ -58,6 +67,7 @@ class IntroFragment : Fragment() {
      * for more information.
      */
     interface OnFragmentInteractionListener {
+        fun navigateToProfileCreation()
     }
 
     companion object {

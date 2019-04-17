@@ -6,4 +6,5 @@
     <color name="colorBackground">#FF202020</color>
     <color name="colorTextBody1">#88FFFFFF</color>
     <color name="colorTextButtonPrimary">#FFFFFFFF</color>
+    <color name="colorInputBackground">#FF1C1C1D</color>
 </resources>

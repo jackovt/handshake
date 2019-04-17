@@ -34,4 +34,18 @@
         <item name="android:textStyle">bold</item>
     </style>
 
+    <style name="AppTheme.Widget.Button.NoBackground" parent="@style/Widget.AppCompat.Button.Borderless">
+        <item name="android:textColor">@color/colorTextBody1</item>
+    </style>
+
+    <style name="AppTheme.TextInputLayout" parent="Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+        <item name="hintTextAppearance">@style/AppTheme.HintText</item>
+        <item name="android:paddingBottom">8dp</item>
+        <item name="android:background">@color/colorInputBackground</item>
+    </style>
+
+    <style name="AppTheme.HintText" parent="TextAppearance.MaterialComponents.Subtitle2">
+        <item name="android:textColor">@android:color/black</item>
+    </style>
+
 </resources>

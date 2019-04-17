@@ -4,6 +4,8 @@ apply plugin: 'kotlin-android'
 
 apply plugin: 'kotlin-android-extensions'
 
+apply plugin: 'kotlin-kapt'
+
 android {
     compileSdkVersion 28
     defaultConfig {
@@ -12,14 +14,49 @@ android {
         targetSdkVersion 28
         versionCode 1
         versionName "1.0"
-        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        testInstrumentationRunner getInstrumentation()
+        vectorDrawables.useSupportLibrary = true
     }
     buildTypes {
         release {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
+        debug {
+            buildConfigField 'String', 'TEST_TAGS', '"' + getTestTags() + '"'
+            buildConfigField 'String', 'TEST_SCENARIO', '"' + getTestScenario() + '"'
+        }
     }
+    dataBinding {
+        enabled = true
+    }
+    androidExtensions {
+        experimental = true
+    }
+    testOptions {
+        unitTests.includeAndroidResources = true
+        unitTests.returnDefaultValues = true
+        animationsDisabled true
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+}
+
+def getInstrumentation() {
+    //project.hasProperty('cucumber') ? 'io.nomasters.android.handshake.acceptancetests.HandshakeAndroidJUnitRunner' : 'android.support.test.runner.AndroidJUnitRunner'
+//    'cucumber.api.android.CucumberAndroidJUnitRunner'
+//    'android.support.test.runner.AndroidJUnitRunner'
+    'io.nomasters.android.handshake.test.HandshakeAndroidJUnitRunner'
+}
+
+def getTestTags() {
+    project.getProperties().get('tags') ?: ''
+}
+
+def getTestScenario() {
+    project.getProperties().get('scenario') ?: ''
 }
 
 dependencies {
@@ -27,13 +64,22 @@ dependencies {
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
     implementation "androidx.appcompat:appcompat:${app_compat_version}"
     implementation "androidx.constraintlayout:constraintlayout:${androidx_constraint_layout_version}"
-    implementation 'androidx.legacy:legacy-support-v4:1.0.0-beta01'
+    implementation "com.google.android.material:material:${google_material_design_version}"
+    implementation 'androidx.legacy:legacy-support-v4:1.0.0'
     androidTestImplementation "androidx.test.espresso:espresso-core:${androidx_expresso_version}"
+    androidTestImplementation "androidx.test.espresso:espresso-intents:${androidx_expresso_version}"
     androidTestImplementation "androidx.test:runner:${androidx_test_version}"
     androidTestImplementation "androidx.test:rules:${androidx_test_version}"
+    androidTestImplementation "androidx.test:core:${androidx_test_core_version}"
+    androidTestImplementation "androidx.test.ext:junit:${androidx_test_core_version}"
+    androidTestImplementation "junit:junit:${junit_version}"
+    androidTestImplementation "io.cucumber:cucumber-junit:${cucumber_version}"
+    androidTestImplementation "io.cucumber:cucumber-core:${cucumber_version}"
+    androidTestImplementation "io.cucumber:cucumber-android:${cucumber_version}"
     testImplementation "junit:junit:${junit_version}"
     testImplementation "com.nhaarman.mockitokotlin2:mockito-kotlin:${mockito_kotlin_version}"
     testImplementation "io.cucumber:cucumber-java8:${cucumber_version}"
     testImplementation "io.cucumber:cucumber-junit:${cucumber_version}"
     testImplementation "io.cucumber:cucumber-core:${cucumber_version}"
+    kapt "androidx.databinding:databinding-compiler:${androidx_databinding_annotations_version}"
 }
