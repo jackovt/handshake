@@ -1,4 +1,4 @@
-#Handshake Android App
+# Handshake Android App
 
 ![alt text](screenshots/app.gif)
 
