@@ -23,9 +23,11 @@ class MainActivity : AppCompatActivity(),
     IntroDuressProfileFragment.OnFragmentInteractionListener,
     LoginFragment.OnFragmentInteractionListener {
 
-    private val PREF_APP_FIRST_LAUNCH: String = "PREF_APP_FIRST_LAUNCH"
-    private val PREF_PROFILE_CREATED: String = "PREF_PROFILE_CREATED"
-    private val PREF_DURESS_PROFILE_CREATED: String = "PREF_DURESS_PROFILE_CREATED"
+    companion object {
+        val PREF_APP_FIRST_LAUNCH: String = "PREF_APP_FIRST_LAUNCH"
+        val PREF_PROFILE_CREATED: String = "PREF_PROFILE_CREATED"
+        val PREF_DURESS_PROFILE_CREATED: String = "PREF_DURESS_PROFILE_CREATED"
+    }
 
     private lateinit var preferences: SharedPreferences
 
@@ -96,7 +98,7 @@ class MainActivity : AppCompatActivity(),
                 if (userHasCreatedDuressProfile()) LoginFragment.newInstance()
                 else IntroDuressProfileFragment.newInstance()
             } else {
-                IntroProfileFragment.newInstance()
+                IntroFragment.newInstance()
             }
         }
     }

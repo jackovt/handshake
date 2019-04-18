@@ -6,6 +6,7 @@ import androidx.test.espresso.intent.Intents.intended
 import androidx.test.espresso.intent.matcher.IntentMatchers.hasComponent
 import androidx.test.platform.app.InstrumentationRegistry
 import androidx.test.rule.ActivityTestRule
+import java.util.*
 
 
 /**
@@ -26,11 +27,48 @@ class HandshakeRobot {
         clearSharedPrefs(InstrumentationRegistry.getInstrumentation().targetContext)
     }
 
+    fun setAppFirstLaunchedPreference() {
+        setNowBasedPreference(MainActivity.PREF_APP_FIRST_LAUNCH)
+    }
+
+    fun setProfileCreatedPreference() {
+        setNowBasedPreference(MainActivity.PREF_PROFILE_CREATED)
+    }
+
+    fun setDuressProfileCreatedPreference() {
+        setNowBasedPreference(MainActivity.PREF_DURESS_PROFILE_CREATED)
+    }
+
+    fun clearProfileCreatedPreference() {
+        getSharedPreferences(InstrumentationRegistry.getInstrumentation().targetContext)
+            .edit()
+            .remove(MainActivity.PREF_PROFILE_CREATED)
+            .apply()
+    }
+
+    fun clearDuressProfileCreatedPreference() {
+        getSharedPreferences(InstrumentationRegistry.getInstrumentation().targetContext)
+            .edit()
+            .remove(MainActivity.PREF_DURESS_PROFILE_CREATED)
+            .apply()
+    }
+
     private fun clearSharedPrefs(context: Context) {
-        val prefs = PreferenceManager.getDefaultSharedPreferences(context)
+        val prefs = getSharedPreferences(context)
         val editor = prefs.edit()
         editor.clear()
         editor.commit()
+    }
+
+    private fun getSharedPreferences(context: Context) =
+        PreferenceManager.getDefaultSharedPreferences(context)
+
+
+    private fun setNowBasedPreference(preferenceKey: String) {
+        getSharedPreferences(InstrumentationRegistry.getInstrumentation().targetContext)
+            .edit()
+            .putLong(preferenceKey, Calendar.getInstance().time.time)
+            .apply()
     }
 
 }
