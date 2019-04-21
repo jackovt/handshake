@@ -1,10 +1,42 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorPrimary">#FF468EE5</color>
+    <color name="colorPrimary">#FF4A90E2</color>
     <color name="colorPrimaryDark">#FF2C5990</color>
-    <color name="colorAccent">#FFFF9600</color>
-    <color name="colorBackground">#FF202020</color>
-    <color name="colorTextBody1">#88FFFFFF</color>
+    <color name="colorAccent">#FFFF9500</color>
+    <color name="colorAccentTrans70">#B3FF9500</color>
+    <color name="colorBackground">#FF212121</color>
+    <color name="colorTextBody1">#FFDBDBDB</color>
+    <color name="colorGray">#FF979797</color>
+    <color name="colorGrayMedium">#FF666666</color>
+    <color name="editTextHint">#33FFFFFF</color>
     <color name="colorTextButtonPrimary">#FFFFFFFF</color>
     <color name="colorInputBackground">#FF1C1C1D</color>
+
+    <!--
+
+    100% — FF
+    95% — F2
+    90% — E6
+    85% — D9
+    80% — CC
+    75% — BF
+    70% — B3
+    65% — A6
+    60% — 99
+    55% — 8C
+    50% — 80
+    45% — 73
+    40% — 66
+    35% — 59
+    30% — 4D
+    25% — 40
+    20% — 33
+    15% — 26
+    10% — 1A
+    5% — 0D
+    0% — 00
+
+
+
+    -->
 </resources>

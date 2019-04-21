@@ -19,10 +19,4 @@
         <item name="android:statusBarColor">@android:color/transparent</item>
     </style>
 
-    <style name="AppTheme.Widget.Button.Colored.Primary" parent="@style/Widget.AppCompat.Button.Colored">
-        <item name="android:backgroundTint">@color/colorPrimary</item>
-        <item name="android:textColor">@color/colorTextButtonPrimary</item>
-        <item name="android:textStyle">bold</item>
-    </style>
-
 </resources>

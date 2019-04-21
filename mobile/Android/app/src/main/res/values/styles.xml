@@ -24,10 +24,16 @@
         <item name="android:textColor">@color/colorTextBody1</item>
     </style>
 
+    <style name="AppTheme.TextAppearance.Body1.Html" parent="AppTheme.TextAppearance.Body1">
+        <item name="android:linksClickable">true</item>
+        <item name="android:clickable">true</item>
+        <item name="android:textColorLink">@color/colorAccentTrans70</item>
+    </style>
+
     <style name="AppTheme.Widget.Button.Colored.Primary" parent="@style/Widget.AppCompat.Button.Colored">
-        <item name="android:background">@color/colorPrimary</item>
+        <item name="android:background">@drawable/background_btn_colored</item>
         <item name="android:textColor">@color/colorTextButtonPrimary</item>
-        <item name="android:textStyle">bold</item>
+        <item name="android:fontFamily">sans-serif-medium</item>
     </style>
 
     <style name="AppTheme.Widget.Button.Colored.Accent" parent="@style/Widget.AppCompat.Button.Colored">
@@ -38,14 +44,33 @@
         <item name="android:textColor">@color/colorTextBody1</item>
     </style>
 
+    <style name="AppTheme.Widget.ProgressBar.Colored" parent="@style/Widget.AppCompat.ProgressBar.Horizontal">
+        <item name="android:layout_height">2dp</item>
+    </style>
+
     <style name="AppTheme.TextInputLayout" parent="Widget.MaterialComponents.TextInputLayout.OutlinedBox">
         <item name="hintTextAppearance">@style/AppTheme.HintText</item>
-        <item name="android:paddingBottom">8dp</item>
-        <item name="android:background">@color/colorInputBackground</item>
+        <item name="boxBackgroundMode">filled</item>
+        <item name="android:layout_height">@dimen/height_edit_text</item>
+        <item name="hintEnabled">false</item>
+        <item name="errorEnabled">true</item>
+    </style>
+
+    <style name="AppTheme.TextInputEditText" parent="Base.Widget.MaterialComponents.TextInputEditText">
+        <item name="android:background">@drawable/background_selector_edit_text</item>
+        <item name="android:textCursorDrawable">@drawable/cursor_color_accent_trans_70</item>
+        <item name="android:drawableRight">@drawable/btn_edit_text_clear</item>
+        <item name="android:paddingEnd">@dimen/padding_btn_edit_text</item>
+        <item name="android:layout_height">@dimen/height_edit_text</item>
+        <item name="android:gravity">center_vertical</item>
+    </style>
+
+    <style name="AppTheme.TextInputEditText.Password" parent="AppTheme.TextInputEditText">
+        <item name="android:inputType">textPassword</item>
     </style>
 
     <style name="AppTheme.HintText" parent="TextAppearance.MaterialComponents.Subtitle2">
-        <item name="android:textColor">@android:color/black</item>
+        <item name="android:textColor">@color/editTextHint</item>
     </style>
 
 </resources>

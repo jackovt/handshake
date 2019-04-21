@@ -82,7 +82,7 @@ class NavigationStepDefinitions {
         splashRobot.isSplashScreenShowing(activityTestRule)
     }
 
-    @Then("^after 2 seconds splash screen should disappear")
+    @Then("^after 2 seconds the splash screen should disappear")
     fun then_after_2_seconds_splash_screen_should_disappear() {
         splashRobot.isSplashScreenGone(activityTestRule)
     }

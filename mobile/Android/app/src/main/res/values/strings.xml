@@ -11,7 +11,7 @@
     <string name="text_header_intro_profile_text">Create a \nPrimary Profile.</string>
     <string name="text_header_intro_profile_duress_text">Create a \nDuress Profile.</string>
     <string name="text_description_intro_profile_text">
-        <![CDATA[Handshake does not use centralize user accounts and it doesn\'t rely on your device encryption. <a href=\"google.com\">more</a>]]>
+        <![CDATA[Handshake does not use centralize user accounts and it doesn\'t rely on your device encryption. <a href=\"https://google.com\">more</a>]]>
     </string>
     <string name="text_description_intro_profile_duress_text">Handshake also supports a duress profile. This is a special \"trap door\" profile you can use in case you are compelled to decrypt your profile. more</string>
     <string name="text_hint_password">Password</string>
