@@ -1,4 +1,4 @@
-package io.nomasters.android.handshake.ui.introduress
+package io.nomasters.android.handshake.ui.introprofile
 
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
@@ -15,23 +15,23 @@ import io.nomasters.android.handshake.ui.FragmentRobot
  * @author JH431939 (Jack Hughes)
  * @since 4/14/19
  */
-class IntroDuressProfileRobot : FragmentRobot {
+class IntroProfileRobot : FragmentRobot {
 
     override fun getFragment(): Fragment {
-        return IntroDuressProfileFragment.newInstance()
+        return IntroProfileFragment.newInstance()
     }
 
     override fun getScreenName(): String {
-        return "Duress Profile Creation Screen"
+        return "Profile Creation Screen"
     }
 
     override fun <T : AppCompatActivity> isScreenShowing(rule: ActivityTestRule<T>) {
-        onView(withId(R.id.fragment_intro_duress))
+        onView(withId(R.id.fragment_intro_profile))
             .check(matches(isDisplayed()))
     }
 
     override fun <T : AppCompatActivity> launchFragment(rule: ActivityTestRule<T>) {
-        rule.activity.findNavController(R.id.mainNavigationFragment).navigate(R.id.introDuressProfileFragment)
+        rule.activity.findNavController(R.id.mainNavigationFragment).navigate(R.id.introProfileFragment)
     }
 
 }

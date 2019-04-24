@@ -9,6 +9,8 @@ buildscript {
         androidx_test_version = '1.1.0'
         androidx_test_core_version = '1.1.0'
         androidx_test_multidex = '2.0.1'
+        androidx_fragments = '1.1.0-alpha06'
+        androidx_navigation = '1.0.0'
         junit_version = '4.12'
         mockito_kotlin_version = '2.1.0'
         cucumber_version = '4.2.5'

@@ -10,8 +10,10 @@ import cucumber.api.java.en.Then
 import cucumber.api.java.en.When
 import io.nomasters.android.handshake.HandshakeRobot
 import io.nomasters.android.handshake.MainActivity
+import io.nomasters.android.handshake.ui.FragmentRobot
 import io.nomasters.android.handshake.ui.intro.IntroRobot
 import io.nomasters.android.handshake.ui.introduress.IntroDuressProfileRobot
+import io.nomasters.android.handshake.ui.introprofile.IntroProfileRobot
 import io.nomasters.android.handshake.ui.login.LoginRobot
 import io.nomasters.android.handshake.ui.splash.SplashRobot
 
@@ -26,6 +28,7 @@ class NavigationStepDefinitions {
     private val splashRobot = SplashRobot()
     private val introRobot = IntroRobot()
     private val introDuressProfileRobot = IntroDuressProfileRobot()
+    private val introProfileRobot = IntroProfileRobot()
     private val loginRobot = LoginRobot()
 
     @Before
@@ -38,6 +41,16 @@ class NavigationStepDefinitions {
     fun after() {
         Intents.release()
         activityTestRule.activity.finish()
+    }
+
+    @Given("^the app is started")
+    fun given_the_app_is_started() {
+        handshakeRobot.launchMainActivity(activityTestRule)
+    }
+
+    @Given("^the splash screen is done showing")
+    fun given_the_splash_screen_is_done_showing() {
+        splashRobot.waitForSplashScreen()
     }
 
     @Given("^the app cannot detect it has been opened before")
@@ -71,15 +84,23 @@ class NavigationStepDefinitions {
         handshakeRobot.clearDuressProfileCreatedPreference()
     }
 
+    @Given("^the (.*) is showing$")
+    fun given_the_screen_is_showing(screen: String) {
+        val screenRobot = getScreenRobot(screen)
+        screenRobot.launchFragment(activityTestRule)
+        screenRobot.isScreenShowing(activityTestRule)
+    }
+
     @When("^the launcher activity is started")
     fun when_the_launcher_activity_is_started() {
         handshakeRobot.launchMainActivity(activityTestRule)
         handshakeRobot.isMainActivityLaunched()
     }
 
-    @Then("^the user should see the splash screen")
-    fun then_the_user_should_see_the_splash_screen() {
-        splashRobot.isSplashScreenShowing(activityTestRule)
+    @When("^the user presses \"(.*)\" on the (.*)$")
+    fun when_the_user_presses_button_on_the_screen(buttonText: String, screen: String) {
+        val screenRobot = getScreenRobot(screen)
+        screenRobot.pressButtonWithText(buttonText)
     }
 
     @Then("^after 2 seconds the splash screen should disappear")
@@ -87,18 +108,20 @@ class NavigationStepDefinitions {
         splashRobot.isSplashScreenGone(activityTestRule)
     }
 
-    @Then("^the user should see the intro screen")
-    fun then_the_user_should_see_the_intro_screen() {
-        introRobot.isIntroScreenShowing(activityTestRule)
+    @Then("^the user should see the (.*)$")
+    fun then_the_user_should_see_the_screen(screen: String) {
+        val screenRobot = getScreenRobot(screen)
+        screenRobot.isScreenShowing(activityTestRule)
     }
 
-    @Then("^the user should see the duress profile creation screen")
-    fun then_the_user_should_see_the_duress_profile_creation_screen() {
-        introDuressProfileRobot.isIntroDuressProfileScreenShowing(activityTestRule)
-    }
-
-    @Then("^the user should see the login screen")
-    fun then_the_user_should_see_the_login_screen() {
-        loginRobot.isLoginScreenShowing(activityTestRule)
+    private fun getScreenRobot(screen: String): FragmentRobot {
+        when (screen) {
+            splashRobot.getScreenName() -> return splashRobot
+            introRobot.getScreenName() -> return introRobot
+            introProfileRobot.getScreenName() -> return introProfileRobot
+            introDuressProfileRobot.getScreenName() -> return introDuressProfileRobot
+            loginRobot.getScreenName() -> return loginRobot
+        }
+        throw IllegalArgumentException("Unknown Screen Name: $screen")
     }
 }

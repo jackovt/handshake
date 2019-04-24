@@ -66,6 +66,10 @@ dependencies {
     implementation "androidx.constraintlayout:constraintlayout:${androidx_constraint_layout_version}"
     implementation "com.google.android.material:material:${google_material_design_version}"
     implementation 'androidx.legacy:legacy-support-v4:1.0.0'
+    implementation "androidx.fragment:fragment:${androidx_fragments}"
+    implementation "android.arch.navigation:navigation-fragment-ktx:${androidx_navigation}"
+    implementation "android.arch.navigation:navigation-ui-ktx:${androidx_navigation}"
+    debugImplementation "androidx.fragment:fragment-testing:${androidx_fragments}"
     androidTestImplementation "androidx.test.espresso:espresso-core:${androidx_expresso_version}"
     androidTestImplementation "androidx.test.espresso:espresso-intents:${androidx_expresso_version}"
     androidTestImplementation "androidx.test:runner:${androidx_test_version}"

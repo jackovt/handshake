@@ -1,12 +1,20 @@
 package io.nomasters.android.handshake.ui.splash
 
 import android.content.Context
+import android.content.SharedPreferences
 import android.os.Bundle
+import android.os.Handler
+import android.os.Looper
+import android.preference.PreferenceManager
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.navigation.fragment.findNavController
+import io.nomasters.android.handshake.MainActivity
 import io.nomasters.android.handshake.R
+import java.util.*
+import kotlin.concurrent.schedule
 
 /**
  * A simple [Fragment] subclass.
@@ -18,7 +26,8 @@ import io.nomasters.android.handshake.R
  *
  */
 class SplashFragment : Fragment() {
-    private var listener: OnFragmentInteractionListener? = null
+
+    private lateinit var preferences: SharedPreferences
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -34,31 +43,47 @@ class SplashFragment : Fragment() {
 
     override fun onAttach(context: Context) {
         super.onAttach(context)
-        if (context is OnFragmentInteractionListener) {
-            listener = context
-        } else {
-            throw RuntimeException(context.toString() + " must implement OnFragmentInteractionListener")
+        preferences = PreferenceManager.getDefaultSharedPreferences(context.applicationContext)
+    }
+
+    override fun onResume() {
+        super.onResume()
+
+        val firstFragment = getFirstFragmentToShow()
+        Timer("AfterSplashScreen", false).schedule(SplashFragment.SPLASH_SCREEN_DELAY) {
+            val handler = Handler(Looper.getMainLooper())
+            handler.post {
+                navigateToFragment(firstFragment)
+            }
         }
     }
 
-    override fun onDetach() {
-        super.onDetach()
-        listener = null
+    private fun getFirstFragmentToShow(): Int {
+        return if (isAppFirstLaunch()) {
+            preferences.edit()
+                .putLong(MainActivity.PREF_APP_FIRST_LAUNCH, Calendar.getInstance().time.time)
+                .apply()
+            R.id.introFragment
+        } else {
+            if (userHasCreatedProfile()) {
+                if (userHasCreatedDuressProfile()) R.id.loginFragment
+                else R.id.introDuressProfileFragment
+            } else {
+                R.id.introFragment
+            }
+        }
     }
 
-    /**
-     * This interface must be implemented by activities that contain this
-     * fragment to allow an interaction in this fragment to be communicated
-     * to the activity and potentially other fragments contained in that
-     * activity.
-     *
-     *
-     * See the Android Training lesson [Communicating with Other Fragments]
-     * (http://developer.android.com/training/basics/fragments/communicating.html)
-     * for more information.
-     */
-    interface OnFragmentInteractionListener {
+    fun navigateToFragment(firstFragmentId: Int) {
+        val navController = findNavController()
+        navController.navigate(firstFragmentId)
     }
+
+    private fun isAppFirstLaunch() = !preferences.contains(MainActivity.PREF_APP_FIRST_LAUNCH)
+
+    private fun userHasCreatedProfile() = preferences.contains(MainActivity.PREF_PROFILE_CREATED)
+
+    private fun userHasCreatedDuressProfile() = preferences.contains(MainActivity.PREF_DURESS_PROFILE_CREATED)
 
     companion object {
         val SPLASH_SCREEN_DELAY: Long = 2000
