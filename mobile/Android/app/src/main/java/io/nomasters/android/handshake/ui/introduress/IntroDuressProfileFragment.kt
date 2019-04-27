@@ -1,4 +1,4 @@
-package io.nomasters.android.handshake.ui.intro
+package io.nomasters.android.handshake.ui.introduress
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -8,22 +8,26 @@ import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import io.nomasters.android.handshake.R
-import io.nomasters.android.handshake.databinding.FragmentIntroBinding
+import io.nomasters.android.handshake.databinding.FragmentIntroDuressProfileBinding
 
 /**
  * A simple [Fragment] subclass.
  * Activities that contain this fragment must implement the
- * [IntroFragment.OnFragmentInteractionListener] interface
+ * [IntroDuressProfileFragment.OnFragmentInteractionListener] interface
  * to handle interaction events.
- * Use the [IntroFragment.newInstance] factory method to
+ * Use the [IntroDuressProfileFragment.newInstance] factory method to
  * create an instance of this fragment.
  *
  */
-class IntroFragment : Fragment() {
-    private var binding: FragmentIntroBinding? = null
-    private val callback: IntroFragmentActionCallback = object : IntroFragmentActionCallback {
-        override fun onLetsGetStartedClicked() {
-            findNavController().navigate(R.id.introProfileFragment)
+class IntroDuressProfileFragment : Fragment() {
+    private var binding: FragmentIntroDuressProfileBinding? = null
+    private val callback: IntroDuressProfileFragmentActionCallback = object : IntroDuressProfileFragmentActionCallback {
+        override fun onSubmitClicked() {
+            navigateToLogin()
+        }
+
+        override fun onSkipClicked() {
+            navigateToLogin()
         }
     }
 
@@ -31,9 +35,14 @@ class IntroFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        binding = DataBindingUtil.inflate(inflater, R.layout.fragment_intro, container, false)
+        binding = DataBindingUtil.inflate(inflater, R.layout.fragment_intro_duress_profile, container, false)
         binding?.callback = callback
         return binding?.root
+    }
+
+    private fun navigateToLogin() {
+        val navController = findNavController()
+        navController.navigate(R.id.loginFragment)
     }
 
     companion object {
@@ -45,7 +54,7 @@ class IntroFragment : Fragment() {
          */
         @JvmStatic
         fun newInstance() =
-            IntroFragment().apply {
+            IntroDuressProfileFragment().apply {
                 arguments = Bundle().apply {
                 }
             }

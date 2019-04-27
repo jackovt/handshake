@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation android:id="@+id/navigation_graph"
+            app:startDestination="@id/splashFragment"
+            xmlns:android="http://schemas.android.com/apk/res/android"
+            xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <fragment
+            android:id="@+id/splashFragment"
+            android:label="SplashFragment"
+            android:name="io.nomasters.android.handshake.ui.splash.SplashFragment"/>
+    <fragment
+            android:id="@+id/introFragment"
+            android:label="IntroFragment"
+            android:name="io.nomasters.android.handshake.ui.intro.IntroFragment"/>
+    <fragment
+            android:id="@+id/introProfileFragment"
+            android:label="IntroProfileFragment"
+            android:name="io.nomasters.android.handshake.ui.introprofile.IntroProfileFragment"/>
+    <fragment
+            android:id="@+id/introDuressProfileFragment"
+            android:label="IntroDuressProfileFragment"
+            android:name="io.nomasters.android.handshake.ui.introduress.IntroDuressProfileFragment"/>
+    <fragment
+            android:id="@+id/loginFragment"
+            android:label="LoginFragment"
+            android:name="io.nomasters.android.handshake.ui.login.LoginFragment"/>
+    <fragment
+            android:id="@+id/chatListFragment"
+            android:label="LoginFragment"
+            android:name="io.nomasters.android.handshake.ui.chatlist.ChatListFragment"/>
+</navigation>

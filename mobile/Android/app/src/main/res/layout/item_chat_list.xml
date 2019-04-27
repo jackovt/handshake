@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <import type="android.view.View"/>
+
+        <variable
+                name="data"
+                type="io.nomasters.android.handshake.ui.chatlist.chatlistitem.ChatItemViewModel"/>
+
+        <variable
+                name="callback"
+                type="io.nomasters.android.handshake.ui.chatlist.chatlistitem.ChatListItemActionCallback"/>
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/fragment_chat_list"
+            android:layout_height="@dimen/width_height_chat_list_item_contact_large"
+            android:layout_width="match_parent"
+            tools:background="@color/colorBackground">
+
+        <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/text_chat_contact_icon"
+                android:layout_height="@dimen/width_height_chat_list_item_contact_large"
+                android:layout_margin="0dp"
+                android:layout_width="@dimen/width_height_chat_list_item_contact_large"
+                android:padding="0dp"
+                android:text="@{data.chatSession.participants.get(0).getName().substring(0,1)}"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                style="@style/AppTheme.TextAppearance.Icon.ChatContact"
+                tools:text="Z"/>
+
+        <androidx.appcompat.widget.AppCompatTextView
+                android:ellipsize="end"
+                android:id="@+id/text_chat_contact"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="2dp"
+                android:layout_width="0dp"
+                android:text="@{data.chatSession.participants.get(0).getName()}"
+                app:layout_constraintEnd_toStartOf="@+id/text_duress"
+                app:layout_constraintStart_toEndOf="@+id/text_chat_contact_icon"
+                app:layout_constraintTop_toTopOf="@+id/text_chat_contact_icon"
+                style="@style/AppTheme.TextAppearance.ChatContact"
+                tools:text="Zircon"/>
+
+        <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/text_duress"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="16dp"
+                android:layout_width="wrap_content"
+                android:text="@string/text_indicator_duress"
+                android:visibility="@{data.chatSession.chatMessages.get(0).duress ? View.VISIBLE : View.GONE}"
+                app:layout_constraintBottom_toBottomOf="@+id/text_chat_contact"
+                app:layout_constraintEnd_toStartOf="@+id/text_time_last_chat"
+                app:layout_constraintTop_toTopOf="@+id/text_chat_contact"
+                style="@style/AppTheme.TextAppearance.Indicator.Duress"/>
+
+        <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/text_time_last_chat"
+                android:layout_height="wrap_content"
+                android:layout_width="wrap_content"
+                android:text="@{data.chatSession.chatMessages.get(0).sentTime}"
+                app:layout_constraintBottom_toBottomOf="@+id/text_chat_contact"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/text_chat_contact"
+                style="@style/AppTheme.TextAppearance.ChatLastTime"
+                tools:text="13:22"/>
+
+        <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/text_chat_blurb"
+                android:layout_height="wrap_content"
+                android:layout_width="0dp"
+                android:maxLines="1"
+                android:singleLine="true"
+                android:text="@{data.chatSession.chatMessages.get(0).messageText}"
+                app:layout_constraintBottom_toBottomOf="@+id/text_chat_contact_icon"
+                app:layout_constraintEnd_toStartOf="@+id/text_time_last_chat"
+                app:layout_constraintStart_toStartOf="@+id/text_chat_contact"
+                tools:text="it was great catching up. we'll do something long and probably too long to show"/>
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

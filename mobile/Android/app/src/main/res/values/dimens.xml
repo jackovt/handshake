@@ -9,4 +9,9 @@
     <dimen name="height_edit_text">56dp</dimen>
     <dimen name="padding_btn_edit_text">23dp</dimen>
     <dimen name="radius_rect_rounded_primary">8dp</dimen>
+    <dimen name="width_height_chat_list_item_contact_large">50dp</dimen>
+    <dimen name="text_size_chat_list_item_contact_large">36sp</dimen>
+    <dimen name="radius_rect_rounded_duress">5dp</dimen>
+    <dimen name="text_size_chat_indicator_duress">10sp</dimen>
+    <dimen name="recycler_view_offset_bottom_chat_list">30dp</dimen>
 </resources>

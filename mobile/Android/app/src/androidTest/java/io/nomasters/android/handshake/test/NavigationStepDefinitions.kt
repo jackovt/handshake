@@ -11,6 +11,7 @@ import cucumber.api.java.en.When
 import io.nomasters.android.handshake.HandshakeRobot
 import io.nomasters.android.handshake.MainActivity
 import io.nomasters.android.handshake.ui.FragmentRobot
+import io.nomasters.android.handshake.ui.chatlist.ChatListRobot
 import io.nomasters.android.handshake.ui.intro.IntroRobot
 import io.nomasters.android.handshake.ui.introduress.IntroDuressProfileRobot
 import io.nomasters.android.handshake.ui.introprofile.IntroProfileRobot
@@ -30,6 +31,7 @@ class NavigationStepDefinitions {
     private val introDuressProfileRobot = IntroDuressProfileRobot()
     private val introProfileRobot = IntroProfileRobot()
     private val loginRobot = LoginRobot()
+    private val chatListFragment = ChatListRobot()
 
     @Before
     fun before(scenario: Scenario) {
@@ -121,6 +123,7 @@ class NavigationStepDefinitions {
             introProfileRobot.getScreenName() -> return introProfileRobot
             introDuressProfileRobot.getScreenName() -> return introDuressProfileRobot
             loginRobot.getScreenName() -> return loginRobot
+            chatListFragment.getScreenName() -> return chatListFragment
         }
         throw IllegalArgumentException("Unknown Screen Name: $screen")
     }

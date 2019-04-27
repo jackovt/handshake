@@ -1,4 +1,4 @@
-package io.nomasters.android.handshake.ui.intro
+package io.nomasters.android.handshake.ui.login
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -8,22 +8,22 @@ import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import io.nomasters.android.handshake.R
-import io.nomasters.android.handshake.databinding.FragmentIntroBinding
+import io.nomasters.android.handshake.databinding.FragmentLoginBinding
 
 /**
  * A simple [Fragment] subclass.
  * Activities that contain this fragment must implement the
- * [IntroFragment.OnFragmentInteractionListener] interface
+ * [LoginFragment.OnFragmentInteractionListener] interface
  * to handle interaction events.
- * Use the [IntroFragment.newInstance] factory method to
+ * Use the [LoginFragment.newInstance] factory method to
  * create an instance of this fragment.
  *
  */
-class IntroFragment : Fragment() {
-    private var binding: FragmentIntroBinding? = null
-    private val callback: IntroFragmentActionCallback = object : IntroFragmentActionCallback {
-        override fun onLetsGetStartedClicked() {
-            findNavController().navigate(R.id.introProfileFragment)
+class LoginFragment : Fragment() {
+    private var binding: FragmentLoginBinding? = null
+    private val callback: LoginFragmentActionCallback = object : LoginFragmentActionCallback {
+        override fun onLoginClicked() {
+            login()
         }
     }
 
@@ -31,9 +31,24 @@ class IntroFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        binding = DataBindingUtil.inflate(inflater, R.layout.fragment_intro, container, false)
+        binding = DataBindingUtil.inflate(inflater, R.layout.fragment_login, container, false)
         binding?.callback = callback
         return binding?.root
+    }
+
+    private fun login() {
+        // TODO login
+        if (tryLogin("")) {
+            navigateToChatListFragment()
+        }
+    }
+
+    private fun navigateToChatListFragment() {
+        findNavController().navigate(R.id.chatListFragment)
+    }
+
+    private fun tryLogin(password: String): Boolean {
+        return true
     }
 
     companion object {
@@ -45,7 +60,7 @@ class IntroFragment : Fragment() {
          */
         @JvmStatic
         fun newInstance() =
-            IntroFragment().apply {
+            LoginFragment().apply {
                 arguments = Bundle().apply {
                 }
             }

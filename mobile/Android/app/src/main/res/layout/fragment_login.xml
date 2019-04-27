@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <import type="android.view.View"/>
+
+        <variable
+                name="callback"
+                type="io.nomasters.android.handshake.ui.login.LoginFragmentActionCallback"/>
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/fragment_login"
+            android:layout_height="match_parent"
+            android:layout_width="match_parent"
+            tools:context="./ui/login/LoginFragment">
+
+        <View
+                android:background="@color/colorBackground"
+                android:layout_height="match_parent"
+                android:layout_width="match_parent"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"/>
+
+        <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/guideline_center"
+                android:layout_height="wrap_content"
+                android:layout_width="wrap_content"
+                android:orientation="horizontal"
+                app:layout_constraintGuide_percent="0.50"/>
+
+        <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/guideline_keyline_start_1"
+                android:layout_height="wrap_content"
+                android:layout_width="wrap_content"
+                android:orientation="vertical"
+                app:layout_constraintGuide_begin="@dimen/keyline_horizontal"/>
+
+        <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/guideline_keyline_end_1"
+                android:layout_height="wrap_content"
+                android:layout_width="wrap_content"
+                android:orientation="vertical"
+                app:layout_constraintGuide_end="@dimen/keyline_horizontal"/>
+
+        <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/guideline_keyline_top_1"
+                android:layout_height="wrap_content"
+                android:layout_width="wrap_content"
+                android:orientation="horizontal"
+                app:layout_constraintGuide_begin="@dimen/keyline_vertical"/>
+
+        <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/guideline_keyline_bottom_1"
+                android:layout_height="wrap_content"
+                android:layout_width="wrap_content"
+                android:orientation="horizontal"
+                app:layout_constraintGuide_end="@dimen/keyline_vertical"/>
+
+        <ImageView
+                android:layout_height="wrap_content"
+                android:layout_width="wrap_content"
+                app:layout_constraintBottom_toTopOf="@+id/guideline_center"
+                app:layout_constraintEnd_toEndOf="@+id/guideline_keyline_end_1"
+                app:layout_constraintStart_toStartOf="@+id/guideline_keyline_start_1"
+                app:srcCompat="@drawable/ic_logo"/>
+
+        <com.google.android.material.textfield.TextInputLayout
+                android:clipToPadding="false"
+                android:id="@+id/text_input_password"
+                android:layout_marginTop="64dp"
+                android:layout_width="match_parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/guideline_center"
+                style="@style/AppTheme.TextInputLayout">
+
+            <com.google.android.material.textfield.TextInputEditText
+                    android:hint="@string/text_hint_password"
+                    android:id="@+id/edit_text_password"
+                    android:layout_width="match_parent"
+                    android:onClearEditTextListener="@{false}"
+                    style="@style/AppTheme.TextInputEditText.Password"/>
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <Button
+                android:id="@+id/btn_login"
+                android:layout_height="wrap_content"
+                android:layout_width="0dp"
+                android:onClick="@{()->callback.onLoginClicked()}"
+                android:text="@string/btn_login"
+                android:textAllCaps="false"
+                app:layout_constraintBottom_toTopOf="@id/view_btn_bottom_offset"
+                app:layout_constraintEnd_toEndOf="@+id/guideline_keyline_end_1"
+                app:layout_constraintStart_toStartOf="@+id/guideline_keyline_start_1"
+                style="@style/AppTheme.Widget.Button.Colored.Primary"
+                />
+
+        <View
+                android:id="@+id/view_btn_bottom_offset"
+                android:layout_height="36dp"
+                android:layout_width="0dp"
+                app:layout_constraintBottom_toBottomOf="@id/guideline_keyline_bottom_1"
+                app:layout_constraintEnd_toEndOf="@+id/guideline_keyline_end_1"
+                app:layout_constraintStart_toStartOf="@+id/guideline_keyline_start_1"/>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

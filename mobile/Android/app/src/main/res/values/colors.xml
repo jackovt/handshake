@@ -11,6 +11,8 @@
     <color name="editTextHint">#33FFFFFF</color>
     <color name="colorTextButtonPrimary">#FFFFFFFF</color>
     <color name="colorInputBackground">#FF1C1C1D</color>
+    <color name="colorWhite">#FFFFFFFF</color>
+    <color name="colorRed">#FFCC0004</color>
 
     <!--
 

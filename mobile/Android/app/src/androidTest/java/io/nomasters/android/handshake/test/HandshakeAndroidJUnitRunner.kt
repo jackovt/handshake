@@ -14,6 +14,7 @@ import java.io.File
 @CucumberOptions(
     features = ["features"],
     snippets = SnippetType.CAMELCASE,
+    tags = ["@LoginScreen"],
     glue = ["io.nomasters.android.handshake.test"],
     plugin = ["pretty", "html:target/cucumber"]
 )
@@ -46,8 +47,6 @@ class HandshakeAndroidJUnitRunner : CucumberAndroidJUnitRunner() {
      * @return the absolute path for the report files
      */
     private fun getAbsoluteFilesPath(): String {
-
-        //sdcard/Android/data/cucumber.cukeulator
         val directory = targetContext.getExternalFilesDir(null)
         return File(directory, "reports").getAbsolutePath()
     }

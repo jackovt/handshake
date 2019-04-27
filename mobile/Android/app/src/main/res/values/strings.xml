@@ -17,4 +17,6 @@
     <string name="text_hint_password">Password</string>
     <string name="text_hint_password_confirm">Confirm</string>
     <string name="btn_intro_profile_skip">Skip</string>
+    <string name="text_title_handshake">Handshake</string>
+    <string name="text_indicator_duress">Duress</string>
 </resources>

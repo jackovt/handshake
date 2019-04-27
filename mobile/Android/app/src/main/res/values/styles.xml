@@ -30,6 +30,39 @@
         <item name="android:textColorLink">@color/colorAccentTrans70</item>
     </style>
 
+    <style name="AppTheme.TextAppearance.Icon.ChatContact" parent="AppTheme.TextAppearance.Body1">
+        <item name="android:gravity">center</item>
+        <item name="android:textColor">@color/colorWhite</item>
+        <item name="android:textSize">@dimen/text_size_chat_list_item_contact_large</item>
+        <item name="android:background">@drawable/background_shape_circle_primary</item>
+    </style>
+
+    <style name="AppTheme.TextAppearance.Indicator.Duress" parent="AppTheme.TextAppearance.Body1">
+        <item name="android:gravity">center</item>
+        <item name="android:textColor">@color/colorWhite</item>
+        <item name="android:textSize">@dimen/text_size_chat_indicator_duress</item>
+        <item name="android:background">@drawable/background_shape_rect_rounded_duress</item>
+        <item name="android:paddingBottom">4dp</item>
+        <item name="android:paddingEnd">6dp</item>
+        <item name="android:paddingStart">7dp</item>
+        <item name="android:paddingTop">3dp</item>
+        <item name="android:textAllCaps">true</item>
+        <item name="android:fontFamily">sans-serif</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="AppTheme.TextAppearance.ChatContact" parent="AppTheme.TextAppearance.Body1">
+        <item name="android:textColor">@color/colorWhite</item>
+        <item name="android:textSize">@dimen/text_size_chat_contact</item>
+        <item name="android:fontFamily">sans-serif-medium</item>
+    </style>
+
+    <style name="AppTheme.TextAppearance.ChatLastTime" parent="AppTheme.TextAppearance.Body1">
+        <item name="android:textColor">@color/colorWhite</item>
+        <item name="android:textSize">@dimen/text_size_chat_last_time</item>
+        <item name="android:fontFamily">sans-serif</item>
+    </style>
+
     <style name="AppTheme.Widget.Button.Colored.Primary" parent="@style/Widget.AppCompat.Button.Colored">
         <item name="android:background">@drawable/background_btn_colored</item>
         <item name="android:textColor">@color/colorTextButtonPrimary</item>
@@ -73,4 +106,6 @@
         <item name="android:textColor">@color/editTextHint</item>
     </style>
 
+    <dimen name="text_size_chat_last_time">14sp</dimen>
+    <dimen name="text_size_chat_contact">18sp</dimen>
 </resources>
