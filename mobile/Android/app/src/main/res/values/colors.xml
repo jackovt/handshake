@@ -5,8 +5,11 @@
     <color name="colorAccent">#FFFF9500</color>
     <color name="colorAccentTrans70">#B3FF9500</color>
     <color name="colorBackground">#FF212121</color>
+    <color name="colorMessageBackground">#FF3D3E44</color>
     <color name="colorTextBody1">#FFDBDBDB</color>
+    <color name="colorChatMessageSinceTime">#FF6E6E6E</color>
     <color name="colorGray">#FF979797</color>
+    <color name="colorBackgroundChatMessageExpires">#FF888888</color>
     <color name="colorGrayMedium">#FF666666</color>
     <color name="editTextHint">#33FFFFFF</color>
     <color name="colorTextButtonPrimary">#FFFFFFFF</color>

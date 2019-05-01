@@ -28,4 +28,8 @@
             android:id="@+id/chatListFragment"
             android:label="LoginFragment"
             android:name="io.nomasters.android.handshake.ui.chatlist.ChatListFragment"/>
+    <fragment
+            android:id="@+id/chatFragment"
+            android:label="ChatFragment"
+            android:name="io.nomasters.android.handshake.ui.chat.ChatFragment"/>
 </navigation>

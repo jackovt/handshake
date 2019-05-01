@@ -51,6 +51,32 @@
         <item name="android:textStyle">bold</item>
     </style>
 
+    <style name="AppTheme.TextAppearance.ChatHeader" parent="AppTheme.TextAppearance.Body1">
+        <item name="android:textColor">@color/colorWhite</item>
+        <item name="android:textSize">@dimen/text_size_chat_header</item>
+        <item name="android:fontFamily">sans-serif</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="AppTheme.TextAppearance.ChatMessage" parent="AppTheme.TextAppearance.Body1">
+        <item name="android:textColor">@color/colorWhite</item>
+        <item name="android:textSize">@dimen/text_size_chat_message</item>
+        <item name="android:fontFamily">sans-serif</item>
+        <item name="android:lineSpacingExtra">@dimen/line_spacing_extra_chat_message</item>
+    </style>
+
+    <style name="AppTheme.TextAppearance.ChatMessageSinceTime" parent="AppTheme.TextAppearance.Body1">
+        <item name="android:textColor">@color/colorChatMessageSinceTime</item>
+        <item name="android:textSize">@dimen/text_size_chat_message</item>
+        <item name="android:fontFamily">sans-serif</item>
+    </style>
+
+    <style name="AppTheme.TextAppearance.ChatMessageExpires" parent="AppTheme.TextAppearance.Body1">
+        <item name="android:textColor">@color/colorWhite</item>
+        <item name="android:textSize">@dimen/text_size_chat_message_expires</item>
+        <item name="android:fontFamily">sans-serif-medium</item>
+    </style>
+
     <style name="AppTheme.TextAppearance.ChatContact" parent="AppTheme.TextAppearance.Body1">
         <item name="android:textColor">@color/colorWhite</item>
         <item name="android:textSize">@dimen/text_size_chat_contact</item>
@@ -108,4 +134,8 @@
 
     <dimen name="text_size_chat_last_time">14sp</dimen>
     <dimen name="text_size_chat_contact">18sp</dimen>
+    <dimen name="text_size_chat_header">14sp</dimen>
+    <dimen name="text_size_chat_message">14sp</dimen>
+    <dimen name="line_spacing_extra_chat_message">3sp</dimen>
+    <dimen name="text_size_chat_message_expires">10sp</dimen>
 </resources>

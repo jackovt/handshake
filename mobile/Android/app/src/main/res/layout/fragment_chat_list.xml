@@ -68,7 +68,7 @@
                 app:layout_constraintGuide_end="@dimen/keyline_vertical"/>
 
         <androidx.appcompat.widget.AppCompatButton
-                android:background="@drawable/background_selector_settings"
+                android:background="@drawable/btn_settings"
                 android:id="@+id/btn_settings"
                 android:layout_height="25dp"
                 android:layout_marginStart="9dp"
@@ -111,17 +111,18 @@
 
         <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/recycler_chats"
-                android:layout_height="wrap_content"
+                android:layout_height="0dp"
                 android:layout_marginEnd="3dp"
                 android:layout_marginStart="10dp"
                 android:layout_marginTop="32sp"
                 android:layout_width="0dp"
+                app:adapter="@{data.adapter}"
                 app:bottomSpacingDecorator="@{@dimen/recycler_view_offset_bottom_chat_list}"
                 app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="@id/guideline_keyline_end_1"
                 app:layout_constraintStart_toStartOf="@id/guideline_keyline_start_1"
                 app:layout_constraintTop_toBottomOf="@+id/search_bar"
-                app:adapter="@{data.adapter}"
                 tools:itemCount="4"
                 tools:listitem="@layout/item_chat_list"/>
 

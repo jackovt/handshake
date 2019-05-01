@@ -64,7 +64,9 @@ dependencies {
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
     implementation "androidx.appcompat:appcompat:${app_compat_version}"
     implementation "androidx.constraintlayout:constraintlayout:${androidx_constraint_layout_version}"
-    implementation "androidx.lifecycle:lifecycle-extensions:${androidx_lifecycle}"
+    implementation "androidx.lifecycle:lifecycle-extensions:${androidx_lifecycle_version}"
+    implementation "androidx.room:room-runtime:${androidx_room_version}"
+    implementation "androidx.room:room-ktx:${androidx_room_ktx_version}"
     implementation "com.google.android.material:material:${google_material_design_version}"
     implementation 'androidx.legacy:legacy-support-v4:1.0.0'
     implementation "androidx.fragment:fragment:${androidx_fragments}"
@@ -86,7 +88,9 @@ dependencies {
     testImplementation "io.cucumber:cucumber-java8:${cucumber_version}"
     testImplementation "io.cucumber:cucumber-junit:${cucumber_version}"
     testImplementation "io.cucumber:cucumber-core:${cucumber_version}"
-    testImplementation "androidx.arch.core:core-testing:$androidx_lifecycle"
+    testImplementation "androidx.arch.core:core-testing:$androidx_lifecycle_version"
+    testImplementation "androidx.room:room-testing:$androidx_room_version"
     kapt "androidx.databinding:databinding-compiler:${androidx_databinding_annotations_version}"
-    kapt "androidx.lifecycle:lifecycle-compiler:${androidx_lifecycle}"
+    kapt "androidx.lifecycle:lifecycle-compiler:${androidx_lifecycle_version}"
+    kapt "androidx.room:room-compiler:${androidx_room_version}"
 }
