@@ -1,21 +1,38 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorPrimary">#FF4A90E2</color>
-    <color name="colorPrimaryDark">#FF2C5990</color>
-    <color name="colorAccent">#FFFF9500</color>
-    <color name="colorAccentTrans70">#B3FF9500</color>
-    <color name="colorBackground">#FF212121</color>
-    <color name="colorMessageBackground">#FF3D3E44</color>
-    <color name="colorTextBody1">#FFDBDBDB</color>
-    <color name="colorChatMessageSinceTime">#FF6E6E6E</color>
-    <color name="colorGray">#FF979797</color>
-    <color name="colorBackgroundChatMessageExpires">#FF888888</color>
-    <color name="colorGrayMedium">#FF666666</color>
-    <color name="editTextHint">#33FFFFFF</color>
-    <color name="colorTextButtonPrimary">#FFFFFFFF</color>
-    <color name="colorInputBackground">#FF1C1C1D</color>
+    <color name="colorBlueLight1">#FF4A90E2</color>
+    <color name="colorBlueLight2">#FF2C5990</color>
+    <color name="colorOrangeLight1">#FFFF9500</color>
+    <color name="colorOrangeLight2">#B3FF9500</color>
     <color name="colorWhite">#FFFFFFFF</color>
+    <color name="colorWhiteGray">#FFDBDBDB</color>
+    <color name="colorGrayLight1">#FF979797</color>
+    <color name="colorGrayLight2">#FF888888</color>
+    <color name="colorGray1">#FF6E6E6E</color>
+    <color name="colorGray2">#FF666666</color>
+    <color name="colorGray3">#FF58585C</color>
+    <color name="colorGray4">#33FFFFFF</color>
+    <color name="colorGray5">#FF3D3E44</color>
+    <color name="colorGrayDark1">#FF2D2D2E</color>
+    <color name="colorGrayDark2">#FF212121</color>
+    <color name="colorGrayDark3">#FF1C1C1D</color>
     <color name="colorRed">#FFCC0004</color>
+
+
+    <color name="colorPrimary">@color/colorBlueLight1</color>
+    <color name="colorPrimaryDark">@color/colorBlueLight2</color>
+    <color name="colorAccent">@color/colorOrangeLight1</color>
+    <color name="colorAccentTrans70">@color/colorOrangeLight2</color>
+    <color name="colorTextButtonPrimary">@color/colorWhite</color>
+    <color name="colorTextBody1">@color/colorWhiteGray</color>
+    <color name="colorBackgroundChatMessageExpires">@color/colorGrayLight2</color>
+    <color name="colorChatMessageSinceTime">@color/colorGray1</color>
+    <color name="editTextHint">@color/colorGray4</color>
+    <color name="colorMessageBackground">@color/colorGray5</color>
+    <color name="colorBackgroundEditTextMultiline">@color/colorGrayDark1</color>
+    <color name="colorStrokeEditTextMultiline">@color/colorGrayLight1</color>
+    <color name="colorBackground">@color/colorGrayDark2</color>
+    <color name="colorInputBackground">@color/colorGrayDark3</color>
 
     <!--
 

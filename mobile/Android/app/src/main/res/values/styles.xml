@@ -67,7 +67,7 @@
 
     <style name="AppTheme.TextAppearance.ChatMessageSinceTime" parent="AppTheme.TextAppearance.Body1">
         <item name="android:textColor">@color/colorChatMessageSinceTime</item>
-        <item name="android:textSize">@dimen/text_size_chat_message</item>
+        <item name="android:textSize">@dimen/text_size_chat_message_since</item>
         <item name="android:fontFamily">sans-serif</item>
     </style>
 
@@ -89,22 +89,33 @@
         <item name="android:fontFamily">sans-serif</item>
     </style>
 
-    <style name="AppTheme.Widget.Button.Colored.Primary" parent="@style/Widget.AppCompat.Button.Colored">
+    <style name="AppTheme.Widget.Button.Colored.Primary" parent="Widget.AppCompat.Button.Colored">
         <item name="android:background">@drawable/background_btn_colored</item>
         <item name="android:textColor">@color/colorTextButtonPrimary</item>
         <item name="android:fontFamily">sans-serif-medium</item>
     </style>
 
-    <style name="AppTheme.Widget.Button.Colored.Accent" parent="@style/Widget.AppCompat.Button.Colored">
+    <style name="AppTheme.Widget.Button.Colored.Accent" parent="Widget.AppCompat.Button.Colored">
         <item name="android:textStyle">bold</item>
     </style>
 
-    <style name="AppTheme.Widget.Button.NoBackground" parent="@style/Widget.AppCompat.Button.Borderless">
+    <style name="AppTheme.Widget.Button.NoBackground" parent="Widget.AppCompat.Button.Borderless">
         <item name="android:textColor">@color/colorTextBody1</item>
     </style>
 
-    <style name="AppTheme.Widget.ProgressBar.Colored" parent="@style/Widget.AppCompat.ProgressBar.Horizontal">
+    <style name="AppTheme.Widget.ProgressBar.Colored" parent="Widget.AppCompat.ProgressBar.Horizontal">
         <item name="android:layout_height">2dp</item>
+    </style>
+
+    <style name="AppTheme.Widget.EditText.Multiline" parent="Widget.MaterialComponents.TextInputEditText.OutlinedBox">
+        <item name="android:background">@drawable/background_selector_edit_text_multiline</item>
+        <item name="android:textSize">@dimen/text_size_edit_text_multiline</item>
+        <item name="android:textColorHint">@color/colorGray3</item>
+        <item name="android:maxLines">5</item>
+        <item name="android:paddingBottom">7dp</item>
+        <item name="android:paddingEnd">10dp</item>
+        <item name="android:paddingStart">10dp</item>
+        <item name="android:paddingTop">7dp</item>
     </style>
 
     <style name="AppTheme.TextInputLayout" parent="Widget.MaterialComponents.TextInputLayout.OutlinedBox">
@@ -132,10 +143,4 @@
         <item name="android:textColor">@color/editTextHint</item>
     </style>
 
-    <dimen name="text_size_chat_last_time">14sp</dimen>
-    <dimen name="text_size_chat_contact">18sp</dimen>
-    <dimen name="text_size_chat_header">14sp</dimen>
-    <dimen name="text_size_chat_message">14sp</dimen>
-    <dimen name="line_spacing_extra_chat_message">3sp</dimen>
-    <dimen name="text_size_chat_message_expires">10sp</dimen>
 </resources>

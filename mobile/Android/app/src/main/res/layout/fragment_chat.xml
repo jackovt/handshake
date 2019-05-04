@@ -10,18 +10,18 @@
 
         <variable
                 name="data"
-                type="io.nomasters.android.handshake.ui.chatlist.ChatListViewModel"/>
+                type="io.nomasters.android.handshake.ui.chat.ChatViewModel"/>
 
         <variable
                 name="callback"
-                type="io.nomasters.android.handshake.ui.chatlist.ChatListFragmentActionCallback"/>
+                type="io.nomasters.android.handshake.ui.chat.ChatFragmentActionCallback"/>
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
-            android:id="@+id/fragment_chat_list"
+            android:id="@+id/fragment_chat"
             android:layout_height="match_parent"
             android:layout_width="match_parent"
-            tools:context="./ui/chatlist/ChatListFragment">
+            tools:context="./ui/chat/ChatFragment">
 
         <View
                 android:background="@color/colorBackground"
@@ -67,64 +67,73 @@
                 android:orientation="horizontal"
                 app:layout_constraintGuide_end="@dimen/keyline_vertical"/>
 
-        <androidx.appcompat.widget.AppCompatButton
-                android:background="@drawable/btn_settings"
+        <androidx.appcompat.widget.AppCompatImageButton
+                android:background="@null"
                 android:id="@+id/btn_settings"
-                android:layout_height="25dp"
-                android:layout_marginStart="9dp"
-                android:layout_marginTop="5dp"
-                android:layout_width="25dp"
-                android:padding="0dp"
-                app:layout_constraintStart_toStartOf="@+id/guideline_keyline_start_1"
-                app:layout_constraintTop_toTopOf="parent"/>
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="4dp"
+                android:layout_width="wrap_content"
+                android:padding="10dp"
+                android:paddingEnd="12dp"
+                android:paddingStart="12dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:srcCompat="@drawable/btn_settings"/>
 
         <androidx.appcompat.widget.AppCompatTextView
                 android:layout_height="wrap_content"
                 android:layout_width="wrap_content"
-                android:text="@string/text_title_handshake"
+                android:text="@{data.participants}"
                 app:layout_constraintBottom_toBottomOf="@id/btn_settings"
                 app:layout_constraintEnd_toEndOf="@+id/guideline_keyline_end_1"
                 app:layout_constraintStart_toStartOf="@+id/guideline_keyline_start_1"
-                app:layout_constraintTop_toTopOf="@+id/btn_settings"/>
-
-        <androidx.appcompat.widget.AppCompatButton
-                android:background="@drawable/background_selector_create_chat"
-                android:id="@+id/btn_create_chat"
-                android:layout_height="28dp"
-                android:layout_marginEnd="6dp"
-                android:layout_width="28dp"
-                android:padding="0dp"
-                app:layout_constraintBottom_toBottomOf="@+id/btn_settings"
-                app:layout_constraintEnd_toEndOf="@+id/guideline_keyline_end_1"
                 app:layout_constraintTop_toTopOf="@+id/btn_settings"
+                style="@style/AppTheme.TextAppearance.ChatHeader"
+                tools:text="zircon"/>
+
+        <androidx.appcompat.widget.AppCompatImageButton
+                android:background="@null"
+                android:id="@+id/btn_back"
+                android:layout_height="wrap_content"
+                android:layout_width="wrap_content"
+                android:padding="10dp"
+                android:paddingEnd="18dp"
+                android:paddingStart="18dp"
+                app:layout_constraintBottom_toBottomOf="@+id/btn_settings"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/btn_settings"
+                app:srcCompat="@drawable/background_selector_back"
                 />
 
-        <View
-                android:background="@color/colorGrayLight1"
-                android:id="@+id/search_bar"
-                android:layout_height="36dp"
-                android:layout_marginTop="20dp"
-                android:layout_width="0dp"
-                app:layout_constraintEnd_toEndOf="@id/guideline_keyline_end_1"
-                app:layout_constraintStart_toStartOf="@id/guideline_keyline_start_1"
-                app:layout_constraintTop_toBottomOf="@+id/btn_settings"/>
-
         <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/recycler_chats"
+                android:id="@+id/recycler_messages"
                 android:layout_height="0dp"
                 android:layout_marginEnd="3dp"
                 android:layout_marginStart="10dp"
-                android:layout_marginTop="32sp"
+                android:layout_marginTop="19sp"
                 android:layout_width="0dp"
                 app:adapter="@{data.adapter}"
-                app:bottomSpacingDecorator="@{@dimen/recycler_view_offset_bottom_chat_list}"
+                app:bottomSpacingDecorator="@{@dimen/recycler_view_offset_bottom_chat}"
                 app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintBottom_toTopOf="@+id/edit_chat_new_message"
+                app:layout_constraintEnd_toEndOf="@id/guideline_keyline_end_1"
+                app:layout_constraintStart_toStartOf="@id/guideline_keyline_start_1"
+                app:layout_constraintTop_toBottomOf="@+id/btn_settings"
+                tools:itemCount="4"
+                tools:listitem="@layout/item_chat_message"/>
+
+        <androidx.appcompat.widget.AppCompatEditText
+                android:hint="@string/text_hint_chat_new_message"
+                android:id="@+id/edit_chat_new_message"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="7dp"
+                android:layout_width="0dp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="@id/guideline_keyline_end_1"
                 app:layout_constraintStart_toStartOf="@id/guideline_keyline_start_1"
-                app:layout_constraintTop_toBottomOf="@+id/search_bar"
-                tools:itemCount="4"
-                tools:listitem="@layout/item_chat_list"/>
+                app:layout_constraintTop_toBottomOf="@+id/recycler_messages"
+                style="@style/AppTheme.Widget.EditText.Multiline"/>
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>

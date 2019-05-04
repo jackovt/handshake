@@ -18,6 +18,6 @@ scratch/
 db.bolt
 handshake.boltdb
 output.json
-main
+./main
 alice-handshake.boltdb
 bob-handshake.boltdb

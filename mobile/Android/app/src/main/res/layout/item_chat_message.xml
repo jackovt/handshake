@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <import type="android.view.View"/>
+
+        <variable
+                name="data"
+                type="io.nomasters.android.handshake.ui.chat.chatmessageitem.ChatMessageViewModel"/>
+
+        <variable
+                name="callback"
+                type="io.nomasters.android.handshake.ui.chat.chatmessageitem.ChatMessageActionCallback"/>
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/item_chat_message"
+            android:layout_height="wrap_content"
+            android:layout_width="match_parent"
+            tools:background="@color/colorBackground">
+
+        <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/text_chat_contact_icon"
+                android:layout_height="@dimen/width_height_chat_list_item_contact_large"
+                android:layout_margin="0dp"
+                android:layout_marginTop="3dp"
+                android:layout_width="@dimen/width_height_chat_list_item_contact_large"
+                android:padding="0dp"
+                android:text="@{data.getChatSenderFirstLetter()}"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/text_chat_message"
+                style="@style/AppTheme.TextAppearance.Icon.ChatContact"
+                tools:text="Z"/>
+
+        <View
+                android:background="@drawable/background_shape_rect_rounded_chat_message"
+                android:id="@+id/background_message"
+                android:layout_height="0dp"
+                android:layout_width="0dp"
+                app:layout_constraintBottom_toBottomOf="@+id/text_time_updated"
+                app:layout_constraintEnd_toEndOf="@+id/text_chat_message"
+                app:layout_constraintStart_toStartOf="@+id/text_chat_message"
+                app:layout_constraintTop_toTopOf="@+id/text_chat_message"
+                />
+
+        <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/text_chat_message"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="6dp"
+                android:layout_width="0dp"
+                android:paddingBottom="5dp"
+                android:paddingEnd="11dp"
+                android:paddingStart="12dp"
+                android:paddingTop="6dp"
+                android:text="@{data.chatMessage.messageText}"
+                app:layout_constraintEnd_toStartOf="@+id/image_expires_timer"
+                app:layout_constraintStart_toEndOf="@+id/text_chat_contact_icon"
+                app:layout_constraintTop_toTopOf="parent"
+                style="@style/AppTheme.TextAppearance.ChatMessage"
+                tools:text="Roast irish crema whipped grounds spoon aged strong caffeine latte strong. Café au lait, turkish robusta milk shop java extra."/>
+
+
+        <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/text_time_updated"
+                android:layout_height="wrap_content"
+                android:layout_width="wrap_content"
+                android:paddingBottom="7dp"
+                android:paddingEnd="11dp"
+                android:paddingStart="12dp"
+                android:text="@{data.getTimeAgo(context)}"
+                app:layout_constraintStart_toStartOf="@+id/text_chat_message"
+                app:layout_constraintTop_toBottomOf="@+id/text_chat_message"
+                style="@style/AppTheme.TextAppearance.ChatMessageSinceTime"
+                tools:text="10 min ago"
+                />
+
+        <View
+                android:background="@drawable/background_shape_rect_rounded_chat_message_expires"
+                android:id="@+id/background_expires"
+                android:layout_height="0dp"
+                android:layout_width="0dp"
+                app:layout_constraintBottom_toBottomOf="@+id/text_chat_message_expires"
+                app:layout_constraintEnd_toEndOf="@+id/text_chat_message_expires"
+                app:layout_constraintStart_toStartOf="@+id/image_expires_timer"
+                app:layout_constraintTop_toTopOf="@+id/text_chat_message_expires"/>
+
+        <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/image_expires_timer"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="9dp"
+                android:layout_width="wrap_content"
+                android:paddingEnd="0dp"
+                android:paddingStart="4dp"
+                app:layout_constraintBottom_toBottomOf="@+id/text_chat_message_expires"
+                app:layout_constraintEnd_toStartOf="@+id/text_chat_message_expires"
+                app:layout_constraintStart_toEndOf="@+id/text_chat_message"
+                app:layout_constraintTop_toTopOf="@+id/text_chat_message_expires"
+                app:srcCompat="@drawable/ic_chat_message_expires_timer"/>
+
+        <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/text_chat_message_expires"
+                android:includeFontPadding="false"
+                android:layout_height="wrap_content"
+                android:layout_width="wrap_content"
+                android:paddingBottom="3dp"
+                android:paddingEnd="4dp"
+                android:paddingStart="2dp"
+                android:paddingTop="3dp"
+                android:text="@{data.getExpiresTime(context)}"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/image_expires_timer"
+                app:layout_constraintTop_toTopOf="@+id/item_chat_message"
+                style="@style/AppTheme.TextAppearance.ChatMessageExpires"
+                tools:text="44 min"/>
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
