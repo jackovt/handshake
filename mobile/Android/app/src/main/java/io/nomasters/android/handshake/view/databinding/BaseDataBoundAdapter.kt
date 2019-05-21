@@ -39,7 +39,7 @@ abstract class BaseDataBoundAdapter<T : ViewDataBinding> :
      */
     private val mOnRebindCallback = object : OnRebindCallback<T>() {
         override fun onPreBind(binding: T): Boolean {
-            if (mRecyclerView == null || mRecyclerView!!.isComputingLayout()) {
+            if (mRecyclerView == null || mRecyclerView!!.isComputingLayout) {
                 return true
             }
             val childAdapterPosition = mRecyclerView!!.getChildAdapterPosition(binding.root)

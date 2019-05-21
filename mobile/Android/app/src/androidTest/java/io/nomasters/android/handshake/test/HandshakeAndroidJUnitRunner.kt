@@ -48,6 +48,6 @@ class HandshakeAndroidJUnitRunner : CucumberAndroidJUnitRunner() {
      */
     private fun getAbsoluteFilesPath(): String {
         val directory = targetContext.getExternalFilesDir(null)
-        return File(directory, "reports").getAbsolutePath()
+        return File(directory, "reports").absolutePath
     }
 }

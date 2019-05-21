@@ -11,6 +11,4 @@ import kotlinx.android.parcel.Parcelize
 class ChatParticipant(
     val id: String,
     val name: String
-) : Parcelable {
-
-}
+) : Parcelable

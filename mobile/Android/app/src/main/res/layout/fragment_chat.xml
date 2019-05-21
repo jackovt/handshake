@@ -8,6 +8,10 @@
 
         <import type="android.view.View"/>
 
+        <import type="android.view.inputmethod.EditorInfo"/>
+
+        <import type="android.text.InputType"/>
+
         <variable
                 name="data"
                 type="io.nomasters.android.handshake.ui.chat.ChatViewModel"/>
@@ -120,12 +124,16 @@
                 app:layout_constraintEnd_toEndOf="@id/guideline_keyline_end_1"
                 app:layout_constraintStart_toStartOf="@id/guideline_keyline_start_1"
                 app:layout_constraintTop_toBottomOf="@+id/btn_settings"
+                app:reverseLayout="true"
                 tools:itemCount="4"
                 tools:listitem="@layout/item_chat_message"/>
 
         <androidx.appcompat.widget.AppCompatEditText
                 android:hint="@string/text_hint_chat_new_message"
                 android:id="@+id/edit_chat_new_message"
+                android:imeActionId="@+id/submit"
+                android:imeActionLabel="@string/text_action_send"
+                android:imeOptions="actionSend"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="7dp"
                 android:layout_width="0dp"
@@ -133,7 +141,10 @@
                 app:layout_constraintEnd_toEndOf="@id/guideline_keyline_end_1"
                 app:layout_constraintStart_toStartOf="@id/guideline_keyline_start_1"
                 app:layout_constraintTop_toBottomOf="@+id/recycler_messages"
-                style="@style/AppTheme.Widget.EditText.Multiline"/>
+                app:onEditorActionListener="@{callback}"
+                app:rawInputType="@{InputType.TYPE_CLASS_TEXT}"
+                style="@style/AppTheme.Widget.EditText.Multiline"
+                tools:ignore="InvalidImeActionId"/>
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>

@@ -11,13 +11,16 @@ import io.nomasters.android.handshake.view.databinding.MultiTypeDataBoundAdapter
  * @since 4/27/19
  */
 class ChatViewModel : ViewModel() {
-    var adapter: MultiTypeDataBoundAdapter<ChatMessageViewModel, ItemChatMessageBinding>? = null
-    var chatSession: ChatSession? = null
+
+    var adapter: MultiTypeDataBoundAdapter<ChatMessageViewModel, ItemChatMessageBinding> =
+        MultiTypeDataBoundAdapter(
+            mutableListOf(), null
+        )
+    lateinit var chatSession: ChatSession
 
     fun getParticipants(): String {
-        return chatSession?.participants?.filter { it.id != chatSession?.handshakeUser?.id }
-            ?.map { it.name }?.joinToString(
-                ", "
-            ) ?: ""
+        return chatSession.participants.filter { it.id != chatSession.handshakeUser.id }.joinToString(
+            ", "
+        ) { it.name }
     }
 }

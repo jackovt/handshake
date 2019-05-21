@@ -32,6 +32,16 @@ fun setHtmlText(textView: TextView, htmlText: String) {
     textView.movementMethod = LinkMovementMethod.getInstance()
 }
 
+@BindingAdapter("onEditorActionListener")
+fun setOnEditorActionListener(textView: TextView, listener: TextView.OnEditorActionListener) {
+    textView.setOnEditorActionListener(listener)
+}
+
+@BindingAdapter("rawInputType")
+fun setRawInputType(textView: TextView, rawInputType: Int) {
+    textView.setRawInputType(rawInputType)
+}
+
 @BindingAdapter("adapter")
 fun setRecyclerViewAdapter(recyclerView: RecyclerView, adapter: RecyclerView.Adapter<RecyclerView.ViewHolder>) {
     recyclerView.adapter = adapter

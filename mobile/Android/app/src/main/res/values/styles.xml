@@ -116,6 +116,7 @@
         <item name="android:paddingEnd">10dp</item>
         <item name="android:paddingStart">10dp</item>
         <item name="android:paddingTop">7dp</item>
+        <item name="android:inputType">textMultiLine</item>
     </style>
 
     <style name="AppTheme.TextInputLayout" parent="Widget.MaterialComponents.TextInputLayout.OutlinedBox">

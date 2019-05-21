@@ -44,7 +44,7 @@ android {
     }
 }
 
-def getInstrumentation() {
+def static getInstrumentation() {
     //project.hasProperty('cucumber') ? 'io.nomasters.android.handshake.acceptancetests.HandshakeAndroidJUnitRunner' : 'android.support.test.runner.AndroidJUnitRunner'
 //    'cucumber.api.android.CucumberAndroidJUnitRunner'
 //    'android.support.test.runner.AndroidJUnitRunner'
@@ -72,6 +72,7 @@ dependencies {
     implementation "androidx.fragment:fragment:${androidx_fragments}"
     implementation "android.arch.navigation:navigation-fragment-ktx:${androidx_navigation}"
     implementation "android.arch.navigation:navigation-ui-ktx:${androidx_navigation}"
+    implementation "com.google.dagger:dagger:${dagger_version}"
     debugImplementation "androidx.fragment:fragment-testing:${androidx_fragments}"
     androidTestImplementation "androidx.test.espresso:espresso-core:${androidx_expresso_version}"
     androidTestImplementation "androidx.test.espresso:espresso-intents:${androidx_expresso_version}"
@@ -90,6 +91,7 @@ dependencies {
     testImplementation "io.cucumber:cucumber-core:${cucumber_version}"
     testImplementation "androidx.arch.core:core-testing:$androidx_lifecycle_version"
     testImplementation "androidx.room:room-testing:$androidx_room_version"
+    kapt "com.google.dagger:dagger-compiler:${dagger_version}"
     kapt "androidx.databinding:databinding-compiler:${androidx_databinding_annotations_version}"
     kapt "androidx.lifecycle:lifecycle-compiler:${androidx_lifecycle_version}"
     kapt "androidx.room:room-compiler:${androidx_room_version}"

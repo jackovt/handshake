@@ -64,6 +64,7 @@
                 app:layout_constraintGuide_end="@dimen/keyline_vertical"/>
 
         <ImageView
+                android:contentDescription="@string/content_description_handshake_logo"
                 android:layout_height="wrap_content"
                 android:layout_width="wrap_content"
                 app:layout_constraintBottom_toTopOf="@+id/guideline_center"

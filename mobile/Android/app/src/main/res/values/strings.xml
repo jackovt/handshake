@@ -2,7 +2,6 @@
     <string name="app_name">Handshake</string>
 
     <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="text_header_intro_text">Hello.</string>
     <string name="text_description_intro_text">It appears this is your first time using Handshake. Let\'s get started by creating your encrypted profile.</string>
     <string name="btn_intro_lets_get_started">Let\'s Get Started</string>
@@ -20,6 +19,7 @@
     <string name="text_title_handshake">Handshake</string>
     <string name="text_indicator_duress">Duress</string>
     <string name="text_hint_chat_new_message">New Message</string>
+    <string name="text_action_send">Send</string>
 
     <plurals name="time_years_ago">
         <item quantity="one">%d year ago</item>
